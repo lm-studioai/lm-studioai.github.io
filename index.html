@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LM Studio | Run Local LLMs on Windows, macOS & Linux</title>
+
+<meta name="description" content="Download LM Studio to run large language models locally on your computer. Private, offline, and free. Browse and download models, chat with documents, and use a local OpenAI-compatible API.">
+
+<meta name="keywords" content="LM Studio, LM Studio Download, Local LLM, Run LLM Locally, LM Studio Windows, LM Studio macOS, LM Studio Linux, Local AI, GGUF, MLX, OpenAI Compatible API">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="canonical" href="https://lm-studioai.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="LM Studio | Run Local LLMs">
+<meta property="og:description" content="Download LM Studio to run open models privately on your own hardware. Free, offline, and private.">
+<meta property="og:url" content="https://lm-studioai.github.io/">
+<meta property="og:image" content="https://lm-studioai.github.io/preview.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LM Studio Download">
+<meta name="twitter:description" content="Run local LLMs with LM Studio. Private, offline, free.">
+<meta name="twitter:image" content="https://lm-studioai.github.io/preview.jpg">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"LM Studio",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Windows, macOS, Linux",
+  "description":"LM Studio is a desktop application for running large language models locally with a graphical interface, offline operation, and a local OpenAI-compatible API.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "url":"https://lm-studioai.github.io/"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#ffffff;
+  color:#000000;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e5e5e5;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+}
+
+.logo{
+  font-size:1.5rem;
+  font-weight:500;
+  color:#000;
+  letter-spacing:-0.02em;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#404040;
+  font-weight:400;
+  font-size:0.95rem;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:#000;
+}
+
+.download-btn{
+  background:#000;
+  color:#fff !important;
+  padding:10px 24px;
+  border-radius:9999px;
+  font-weight:500;
+  font-size:0.9rem;
+  transition:.2s;
+}
+
+.download-btn:hover{
+  background:#1a1a1a;
+}
+
+.hero{
+  padding:120px 0 100px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3.8rem;
+  line-height:1.1;
+  margin-bottom:24px;
+  font-weight:500;
+  letter-spacing:-0.03em;
+  color:#000;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:#404040;
+  font-size:1.1rem;
+  font-weight:400;
+}
+
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 32px;
+  border-radius:9999px;
+  text-decoration:none;
+  font-weight:500;
+  font-size:1rem;
+  transition:.2s;
+  display:inline-block;
+}
+
+.primary{
+  background:#000;
+  color:#fff;
+  border:1px solid #000;
+}
+
+.primary:hover{
+  background:#1a1a1a;
+}
+
+.secondary{
+  background:#fff;
+  color:#404040;
+  border:1px solid #d4d4d4;
+}
+
+.secondary:hover{
+  background:#fafafa;
+  border-color:#a3a3a3;
+}
+
+.stats{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+}
+
+.stat-card{
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  padding:28px;
+}
+
+.stat-card h3{
+  font-size:1.6rem;
+  font-weight:500;
+  margin-bottom:6px;
+  color:#000;
+}
+
+.stat-card p{
+  color:#737373;
+  font-size:0.9rem;
+  font-weight:400;
+}
+
+section{
+  padding:90px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:16px;
+  font-weight:500;
+  letter-spacing:-0.02em;
+  color:#000;
+}
+
+.section-sub{
+  text-align:center;
+  color:#737373;
+  max-width:760px;
+  margin:auto auto 50px;
+  font-weight:400;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+
+.feature{
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  padding:28px;
+  transition:.2s;
+}
+
+.feature:hover{
+  background:#fafafa;
+}
+
+.feature h3{
+  margin-bottom:12px;
+  font-size:1.15rem;
+  font-weight:500;
+  color:#000;
+}
+
+.feature p{
+  color:#404040;
+  font-size:0.95rem;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.step{
+  position:relative;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  padding:28px;
+}
+
+.step span{
+  position:absolute;
+  top:16px;
+  right:20px;
+  font-size:2.5rem;
+  font-weight:500;
+  color:#f0f0f0;
+}
+
+.step h3{
+  margin-bottom:10px;
+  font-size:1.05rem;
+  font-weight:500;
+}
+
+.step p{
+  color:#404040;
+  font-size:0.9rem;
+}
+
+.step code{
+  background:#f5f5f5;
+  padding:2px 6px;
+  border-radius:4px;
+  font-size:0.85rem;
+  color:#000;
+}
+
+.faq{
+  max-width:760px;
+  margin:auto;
+}
+
+.faq-item{
+  margin-bottom:12px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e5e5e5;
+}
+
+.faq-question{
+  padding:20px 24px;
+  cursor:pointer;
+  font-weight:500;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#000;
+  font-size:0.95rem;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:.3s;
+  padding:0 24px;
+  color:#404040;
+  font-size:0.95rem;
+}
+
+.faq-item.active .faq-answer{
+  max-height:200px;
+  padding:0 24px 20px;
+}
+
+footer{
+  padding:40px 0;
+  border-top:1px solid #e5e5e5;
+  text-align:center;
+  color:#737373;
+  font-size:0.85rem;
+}
+
+.sticky-download{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  z-index:999;
+}
+
+.sticky-download a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+  padding:14px 28px;
+  border-radius:9999px;
+  background:#000;
+  display:inline-block;
+  font-size:0.9rem;
+  transition:.2s;
+}
+
+.sticky-download a:hover{
+  background:#1a1a1a;
+}
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:2.4rem;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .section-title{
+    font-size:1.6rem;
+  }
+
+  .hero{
+    padding:80px 0 60px;
+  }
+
+  section{
+    padding:60px 0;
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="container">
+
+<nav>
+
+<div class="logo">
+LM Studio
+</div>
+
+<div class="nav-links">
+
+<a href="#features">Features</a>
+<a href="#install">Install</a>
+<a href="#faq">FAQ</a>
+
+<a href="https://a777.lt/SgaXze" class="download-btn">
+Download
+</a>
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>
+Run Local LLMs<br>With a Clean Desktop App
+</h1>
+
+<p>
+LM Studio is a desktop application for running large language models on your own computer. Browse and download models from within the app, chat with them in a familiar interface, attach documents for offline RAG, and serve a local OpenAI-compatible API for your own applications. Everything runs on your hardware — no cloud dependency, no API keys required.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://a777.lt/SgaXze" class="btn primary">
+Download LM Studio
+</a>
+
+<a href="#features" class="btn secondary">
+Explore Features
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<h3>Local</h3>
+<p>Runs On Your Hardware</p>
+</div>
+
+<div class="stat-card">
+<h3>Private</h3>
+<p>Data Never Leaves Your Machine</p>
+</div>
+
+<div class="stat-card">
+<h3>Free</h3>
+<p>No Subscription Required</p>
+</div>
+
+<div class="stat-card">
+<h3>Cross-Platform</h3>
+<p>Windows, macOS & Linux</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="features">
+
+<div class="container">
+
+<h2 class="section-title">
+LM Studio Features
+</h2>
+
+<p class="section-sub">
+LM Studio is built for users who want a graphical, no-command-line experience for running local models, with the flexibility of a local API when you need to build.
+</p>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>Desktop App for Local LLMs</h3>
+
+<p>
+LM Studio is a full desktop application for developing and experimenting with LLMs on your computer, with a clean interface for browsing, downloading, and running models [citation:3].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Fully Offline Operation</h3>
+
+<p>
+Once you have models downloaded, LM Studio can run entirely offline. Chat, document RAG, and the local server all work without an internet connection [citation:7].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>OpenAI-Compatible Local API</h3>
+
+<p>
+LM Studio can serve a local REST API that mimics OpenAI endpoints, allowing you to connect your own applications and scripts. The default endpoint is <code>http://localhost:1234/v1</code>, and no API key is required for local use [citation:4][citation:15].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Document Chat (RAG)</h3>
+
+<p>
+You can attach documents to your chat messages and interact with them entirely offline. Document processing stays on your machine and never leaves the application [citation:3][citation:7].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Model Browser Built In</h3>
+
+<p>
+Search and download models directly within the app. LM Studio supports llama.cpp (GGUF) on all platforms and MLX on Apple Silicon Macs [citation:3].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Broad Platform Support</h3>
+
+<p>
+LM Studio is available for Apple Silicon Macs, x64 and ARM64 Windows PCs (including Snapdragon X Elite), and x64/ARM64 Linux systems [citation:6][citation:11].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+What Is LM Studio?
+</h2>
+
+<p class="section-sub">
+LM Studio is a desktop application for running LLMs locally. Unlike command-line-first tools, it provides a graphical interface for every step of the workflow: discovering models, downloading them, configuring runtimes, and chatting — with the option to expose a local API for development.
+</p>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>Graphical Local Runtime</h3>
+
+<p>
+LM Studio manages model downloads, runtime configuration, and inference through a desktop UI. You can install or switch LLM runtimes without fully updating the app [citation:7].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>llama.cpp and MLX</h3>
+
+<p>
+On Windows and Linux, LM Studio uses llama.cpp for GGUF models. On Apple Silicon Macs, it also supports MLX for optimized local inference [citation:3].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Local-First Design</h3>
+
+<p>
+The app is designed for local experimentation and development. Network connections are only needed for browsing and downloading models, or for optional runtime downloads [citation:7].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="install">
+
+<div class="container">
+
+<h2 class="section-title">
+How To Install LM Studio
+</h2>
+
+<p class="section-sub">
+Installation is straightforward on all supported platforms. The app is available as a standard installer on Windows and macOS, and as an AppImage on Linux.
+</p>
+
+<div class="steps">
+
+<div class="step">
+
+<span>1</span>
+
+<h3>Download For Your Platform</h3>
+
+<p>
+Visit lmstudio.ai/download and choose your operating system. Windows and macOS get standard installers; Linux uses an AppImage [citation:1][citation:5].
+</p>
+
+</div>
+
+<div class="step">
+
+<span>2</span>
+
+<h3>Install & Launch</h3>
+
+<p>
+Run the installer or AppImage. On first launch, LM Studio provides a model browser and a chat interface ready to use.
+</p>
+
+</div>
+
+<div class="step">
+
+<span>3</span>
+
+<h3>Download A Model</h3>
+
+<p>
+Use the in-app search to find a model (for example Llama, Qwen, Mistral, Gemma, or DeepSeek), then click download. Model files can range from a few gigabytes upward [citation:3].
+</p>
+
+</div>
+
+<div class="step">
+
+<span>4</span>
+
+<h3>Load, Chat, or Serve</h3>
+
+<p>
+Load the model and start chatting in the app. To use the API, start the local server (default port 1234) and point your application at <code>http://localhost:1234/v1</code> [citation:15].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+System Requirements
+</h2>
+
+<p class="section-sub">
+LM Studio runs on modest hardware for smaller models, but larger models need more RAM and VRAM. The official documentation provides platform-specific guidance.
+</p>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>Windows</h3>
+
+<p>
+x64 systems require AVX2 instruction set support. ARM (Snapdragon X Elite) is also supported. At least 16GB RAM is recommended, and a GPU with at least 4GB dedicated VRAM is recommended [citation:6][citation:11].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>macOS</h3>
+
+<p>
+Requires Apple Silicon (M1/M2/M3/M4) and macOS 14.0 or newer. 16GB+ RAM recommended. Intel-based Macs are currently not supported [citation:6][citation:11].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Linux</h3>
+
+<p>
+x64 and ARM64 (aarch64) are supported. Distributed as an AppImage. Ubuntu 20.04 or newer is required. x64 builds ship with AVX2 support by default [citation:11].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Why Users Choose LM Studio
+</h2>
+
+<p class="section-sub">
+LM Studio is often the recommended starting point for people who want local AI without touching a terminal, while still offering the API access developers need.
+</p>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>No Command Line Required</h3>
+
+<p>
+Every core action — browsing models, downloading, loading, chatting, and starting the server — can be done through the graphical interface.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Familiar Chat Experience</h3>
+
+<p>
+The built-in chat window works much like online AI tools, making the transition to local models straightforward for non-technical users.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Developer-Ready API</h3>
+
+<p>
+When you need to integrate local models into your own code, the OpenAI-compatible local server provides a standard interface without requiring cloud credentials [citation:4][citation:15].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Common Considerations
+</h2>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>Model Downloads Require Internet</h3>
+
+<p>
+While inference runs offline, searching and downloading models requires an internet connection to reach model repositories such as Hugging Face [citation:7].
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>VRAM and Model Size</h3>
+
+<p>
+Larger models require more VRAM or system RAM. If a model doesn't fit in dedicated VRAM, performance may drop as layers spill to system memory.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Runtime Management</h3>
+
+<p>
+LM Studio 0.3.0 and later allow LLM runtimes to be downloaded and switched independently of the main app, so you can update the inference engine without a full app update [citation:7].
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Is LM Studio Free?
+</h2>
+
+<p class="section-sub">
+Yes. LM Studio is free to download and use for local model execution. There are no subscription fees or per-token charges for running models on your own hardware.
+</p>
+
+<div class="grid">
+
+<div class="feature">
+
+<h3>Free Desktop App</h3>
+
+<p>
+The LM Studio application is available at no cost. You can download it, install it, and run local models without paying for a license.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>No Metered API Costs</h3>
+
+<p>
+The local API runs on your own hardware, so requests don't generate per-token bills. You pay for electricity, not cloud inference.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Optional Enterprise</h3>
+
+<p>
+LM Studio offers enterprise options for teams, but the core desktop experience for individual local use remains free.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<div class="container">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<div class="faq-question">
+Is LM Studio free to use?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. LM Studio is free to download and use for running models locally on your own computer. There are no subscription fees for the core desktop experience.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Does LM Studio work on Windows?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. LM Studio supports x64 Windows systems with AVX2 support, as well as ARM-based Windows PCs such as Snapdragon X Elite. At least 16GB RAM and a GPU with 4GB+ VRAM are recommended [citation:6][citation:11].
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Does LM Studio require an API key?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+No. For local use, LM Studio does not require authentication. The local API is OpenAI-compatible but runs on your machine, and API keys are not needed for the default localhost setup [citation:4][citation:15].
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Can LM Studio run completely offline?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. After models are downloaded, chat, document RAG, and the local server all work without an internet connection. Only model discovery and downloads require network access [citation:7].
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Disclaimer
+</h2>
+
+<div class="feature" style="max-width:1000px;margin:auto;">
+
+<p>
+LM Studio is a desktop application developed by Element Labs. This website is an informational resource and is not the official LM Studio website. For the official download and documentation, visit lmstudio.ai.
+</p>
+
+<br>
+
+<p>
+Model performance and compatibility depend on your hardware configuration, driver versions, and the specific model being run. System requirements listed reflect official documentation at the time of writing and may change with updates.
+</p>
+
+<br>
+
+<p>
+Running large language models locally consumes significant computational resources. Ensure your system meets the requirements for the models you intend to use.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2026 LM Studio Guide. Independent informational resource. Not affiliated with LM Studio.
+</p>
+
+</div>
+
+</footer>
+
+<div class="sticky-download">
+
+<a href="https://a777.lt/SgaXze">
+Download LM Studio
+</a>
+
+</div>
+
+<script>
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+
+item.addEventListener('click', () => {
+
+item.classList.toggle('active');
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
